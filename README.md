@@ -25,8 +25,8 @@ Workflow and Scripts for migration from Citrix Hypervisor to Proxmox
 
 run uninstall script:
 
-```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ChaosKai/xen-pve-migration/main/uninstall.ps1'))```
+```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/uninstall.ps1'))```
 
 run cleanup script:
 
-```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ChaosKai/xen-pve-migration/main/cleanup.ps1'))```
+```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/cleanup.ps1'))```

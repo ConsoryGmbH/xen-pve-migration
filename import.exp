@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+
+set USERNAME [lrange $argv 0 0]
+set PASSWORD [lrange $argv 1 1]
+set HOSTNAME [lrange $argv 2 2]
+set PVE_VM_ID [lrange $argv 3 3]
+set XEN_DISK_UUID [lrange $argv 4 4]
+set timeout -1
+
+spawn ssh -l $USERNAME $HOSTNAME "sudo -S qm importdisk $PVE_VM_ID /mnt/umzug/$XEN_DISK_UUID.qcow2 ceph-ssd-01"
+expect {
+  "*(yes/no)*" {
+    send -- "yes\r"
+    exp_continue
+  }
+  "*password*" {
+    send -- "$PASSWORD\r"
+    exp_continue
+  }
+  eof
+  {
+
+  }
+}

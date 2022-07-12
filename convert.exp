@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+
+set XEN_DISK_UUID [lrange $argv 0 0]
+set timeout -1
+
+spawn qemu-img convert -f vpc -O qcow2 /mnt/$XEN_DISK_UUID.vhd /migration/data2/$XEN_DISK_UUID.qcow2
+expect eof

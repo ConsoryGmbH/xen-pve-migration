@@ -23,10 +23,35 @@ Workflow and Scripts for migration from Citrix Hypervisor to Proxmox
 - import.exp
 
 
-run uninstall script:
+# Workflow
+
+## Windows
+
+### Original VM
+
+- shutdown the virtual machine
+- backup the virtual machine
+- start the backup (manipulate the backup instead of your production machine, in case something goes wrong)
+- run uninstall script on your virtual machine:
 
 ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/uninstall.ps1'))```
-
-run cleanup script:
+- run cleanup script on your virtual machine:
 
 ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/cleanup.ps1'))```
+
+### Proxmox
+
+- create a virtual machine with identical specs as your original vm without disks
+
+### Engineer PC
+
+- run the export.sh
+- provide the old disk uuid from xen
+- provide the new vm id
+
+### Proxmox
+
+- mount the imported disk with SATA Driver
+- add the disk to the boot options
+- start the virtual machine
+- install the virtio drivers

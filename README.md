@@ -35,9 +35,13 @@ Workflow and Scripts for migration from Citrix Hypervisor to Proxmox
 - run uninstall script on your virtual machine:
 
 ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/uninstall.ps1'))```
+- restart the virtual machine
 - run cleanup script on your virtual machine:
 
 ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ConsoryGmbH/xen-pve-migration/main/cleanup.ps1'))```
+- shutdown the virtual machine
+
+Info: use the full username like MyHostname\Administrator or MyDomain\Administrator
 
 ### Proxmox
 
